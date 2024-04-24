@@ -1,10 +1,9 @@
 import java.util.*;
 import java.util.function.IntFunction;
-import java.util.function.IntPredicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class 二分查找 {
+public class HalfSearch {
     public int search(int[] nums, int target) {
         int left = 0, right = nums.length;
         while(left<right){
@@ -19,6 +18,8 @@ public class 二分查找 {
         }
         return -1;
     }
+
+    //关键在于right不可达且mid偏左，那么移动的重任就叫给right也就是（==），向下取整同时要避开left==target的情况
     public int findPosition(int[] nums, int target) {
         int left = 0, right = nums.length;
         while(left<right){
