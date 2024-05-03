@@ -13,7 +13,7 @@ public class Solution {
         while (gap >= 1) {
             // 缩小增量的插入排序
             for (int i = h; i < len; i++) {
-                insertionForDelta(nums, h, i);
+                insertionForDelta(nums, gap, i);
             }
             gap /= 2;
         }

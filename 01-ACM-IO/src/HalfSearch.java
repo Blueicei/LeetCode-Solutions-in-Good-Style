@@ -34,7 +34,7 @@ public class HalfSearch {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1,3,5,5,6};
+        int[] nums = {1,3,5,5,6,-1,2,2};
         IntFunction<Integer> binarySearch = (int target) -> {
             int left = 0, right = nums.length;
             while(left<right){
@@ -48,12 +48,13 @@ public class HalfSearch {
             return left;
         };
         List<Integer> list = Arrays.stream(nums).boxed().collect(Collectors.toList());
-        list = list.stream().distinct().collect(Collectors.toList());
-        list = list.stream().map(x -> x*2).collect(Collectors.toList());
-        list = list.stream().flatMap(x -> Stream.of(x*2)).collect(Collectors.toList());
-        list = list.stream().filter(x -> x>5).collect(Collectors.toList());
-        list = list.stream().skip(1).limit(1).collect(Collectors.toList());
-
+//        list = list.stream().distinct().collect(Collectors.toList());
+//        list = list.stream().map(x -> x*2).collect(Collectors.toList());
+//        list = list.stream().flatMap(x -> Stream.of(x*2)).collect(Collectors.toList());
+//        list = list.stream().filter(x -> x>5).collect(Collectors.toList());
+//        list = list.stream().skip(1).limit(1).collect(Collectors.toList());
+//        list.sort(Comparator.naturalOrder());
+        list.sort((x,y)->Integer.compare(y,x));
         String[] strs = {"12", "23", "33", "34", "35"};
         String oneLine = String.join(" ", strs);
         List<Integer> listStr = Arrays.stream(strs).map(Integer::parseInt).collect(Collectors.toList());
@@ -61,6 +62,12 @@ public class HalfSearch {
         String streamOneLine = listStr.stream().map(Object::toString).collect(Collectors.joining(" "));
         int sum = Arrays.stream(nums).reduce(0, (a, b) -> a + b*2);
         int sum1 = listStr.stream().reduce(0, (subtotal, element) -> subtotal + element);
+
+        // List转int[]数组的方法
+//        int[] arrays = list.stream().mapToInt(Integer::intValue).toArray();
+//        int[] arrays = list.stream().mapToInt((Integer i)->i).toArray();
+//        int[] arrays = list.stream().filter(integer -> integer!=null).mapToInt(i->i).toArray();
+
         System.out.println(binarySearch.apply(0));
         System.out.println(list);
         System.out.println(listStr);
