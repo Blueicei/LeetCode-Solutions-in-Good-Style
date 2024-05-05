@@ -15,6 +15,8 @@ public class Solution2 {
         int res = 0;
 
         for (int i = 0; i < len; i++) {
+            // 这里heights[stack.peek()] > heights[i]和width = i - stack.peek() - 1，配合的太好了，面对这种动态问题判断大小是关键
+            // 知道一个最高的/后面都是比他高的，后面就可以放心向后扩展了
             while (!stack.isEmpty() && heights[stack.peek()] > heights[i]) {
                 // top 所在的柱形的最大高度可以确定
                 int top = stack.pop();

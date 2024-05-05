@@ -8,7 +8,8 @@ public class Solution {
         if (dirs.length == 0) {
             return "/";
         }
-
+        Integer i = Integer.valueOf(0);
+        i.compareTo(Integer.valueOf(1));
         Deque<String> stack = new ArrayDeque<>();
         for (String dir : dirs) {
             if ("".equals(dir) || ".".equals(dir)) {

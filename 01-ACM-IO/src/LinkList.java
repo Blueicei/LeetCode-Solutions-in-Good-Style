@@ -1,5 +1,7 @@
 
 public class LinkList {
+    // 合并两个有序链表，创建+打印链表
+
     static class LinkNode{
         int val;
         LinkNode next;

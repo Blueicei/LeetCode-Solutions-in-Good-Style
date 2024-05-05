@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class Solution3 {
 
     // 方法三：并查集
@@ -62,7 +65,7 @@ public class Solution3 {
             }
         }
     }
-
+    Set<Integer> set = new HashSet<>();
     private int getIndex(int x, int y, int cols) {
         return x * cols + y;
     }
